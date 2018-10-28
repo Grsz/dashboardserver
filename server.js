@@ -14,9 +14,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(fileUpload());
-app.get('/', (req, res => {
+app.get('/', (req, res) => {
     res.status(200).send()
-}))
+})
 app.post('/checktoken', (req, res) => {
     const { token } = req.body;
     const decoded = jsonwebtoken.verify(token, verifyKey);
