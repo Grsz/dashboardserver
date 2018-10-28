@@ -2,12 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
-const { config, verifyKey } = require("./db");
-const db = require('knex')(config);
+const db = require('knex')({
+    client: 'pg',
+    connection: {
+      host : process.env.DATABASE_URL,
+      ssl: true
+    }
+});
 const fs = require('fs');
 const fileUpload = require('express-fileupload');
 const jsonwebtoken  = require('jsonwebtoken');
 
+const verifyKey = "mhb_GQSQZzp7KoeiT1JK4FjQ80-b7WeCfVaf2dAHfHTjvKT_3wmAOwONQEgovftSWkV5TQuu8jWYctVjb7u_-w";
 
 const app = express();
 
