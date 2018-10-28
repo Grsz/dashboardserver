@@ -14,6 +14,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(fileUpload());
+app.get('/', (req, res => {
+    res.status(200).send()
+}))
 app.post('/', (req, res) => {
     const { token } = req.body;
     const decoded = jsonwebtoken.verify(token, verifyKey);
@@ -146,6 +149,6 @@ app.post('/newtaskname', (req, res) => {
     .then(task => res.json(task[0]))
     .catch(err => console.log(err))
 })
-app.listen(3001, () => {
-    console.log('app is running on port 3001')
+app.listen(process.env.PORT || 3001, () => {
+    console.log(`app is running on port ${process.env.PORT || 3001}`)
 })
