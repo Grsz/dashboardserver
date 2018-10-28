@@ -17,7 +17,7 @@ app.use(fileUpload());
 app.get('/', (req, res => {
     res.status(200).send()
 }))
-app.post('/', (req, res) => {
+app.post('/checktoken', (req, res) => {
     const { token } = req.body;
     const decoded = jsonwebtoken.verify(token, verifyKey);
     if(decoded.username){

@@ -18,9 +18,7 @@
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.3.0",
     "knex": "^0.15.2",
-    "pg": "^7.5.0"
-  },
-  "devDependencies": {
+    "pg": "^7.5.0",
     "nodemon": "^1.18.4"
   }
 }
